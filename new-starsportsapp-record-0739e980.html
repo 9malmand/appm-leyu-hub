@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>星空体育app · 快速了解平台用途</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: linear-gradient(145deg, #ffd9a8 0%, #fbbf7a 50%, #f59e4c 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.2rem;
+      line-height: 1.6;
+      color: #2d2a24;
+    }
+
+    .wrapper {
+      max-width: 980px;
+      width: 100%;
+    }
+
+    /* ---------- 卡片容器 ---------- */
+    .card-soft {
+      background: rgba(255, 250, 240, 0.92);
+      backdrop-filter: blur(2px);
+      border-radius: 2.5rem;
+      padding: 2.8rem 2.5rem;
+      box-shadow: 0 20px 40px rgba(110, 60, 20, 0.18), 0 6px 12px rgba(0, 0, 0, 0.05);
+      margin-bottom: 2rem;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .card-soft:hover {
+      box-shadow: 0 24px 48px rgba(110, 60, 20, 0.22);
+    }
+
+    /* ---------- hero 区域 ---------- */
+    .hero {
+      text-align: center;
+      padding: 2.2rem 1rem 2rem;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #bf5f1a, #9b4a0e);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 0.6rem;
+      line-height: 1.15;
+    }
+
+    .hero .subhead {
+      font-size: 1.25rem;
+      color: #6b4f30;
+      max-width: 640px;
+      margin: 0 auto 0.8rem;
+      font-weight: 420;
+    }
+
+    .hero .badge {
+      display: inline-block;
+      background: #d9782b;
+      color: #fef6eb;
+      border-radius: 60px;
+      padding: 0.25rem 1.2rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      margin-top: 0.5rem;
+      text-transform: uppercase;
+      box-shadow: 0 3px 8px rgba(180, 80, 10, 0.2);
+    }
+
+    /* ---------- grid 区域 ---------- */
+    .grid-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.6rem;
+      margin: 1.8rem 0 1.2rem;
+    }
+
+    .feat-item {
+      background: #fffbf5;
+      border-radius: 1.8rem;
+      padding: 1.6rem 1.5rem;
+      box-shadow: 0 4px 10px rgba(150, 80, 20, 0.08);
+      transition: transform 0.15s ease;
+    }
+
+    .feat-item:hover {
+      transform: translateY(-3px);
+    }
+
+    .feat-item h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #884a1a;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .feat-item p {
+      font-size: 0.96rem;
+      color: #4b3d2f;
+    }
+
+    .num-highlight {
+      display: inline-flex;
+      background: #ebd2b5;
+      border-radius: 40px;
+      padding: 0 0.7rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #6a3f17;
+      margin-left: 0.3rem;
+    }
+
+    /* ---------- 说明 / 场景 ---------- */
+    .desc-block {
+      margin: 1.8rem 0 1.4rem;
+    }
+
+    .desc-block p {
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    .desc-block strong {
+      color: #9c531e;
+    }
+
+    .inline-link {
+      color: #b2591c;
+      text-decoration: none;
+      font-weight: 550;
+      border-bottom: 2px solid #f5c797;
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    .inline-link:hover {
+      border-bottom-color: #b85f1b;
+      color: #7e4113;
+    }
+
+    /* ---------- FAQ 摘要 ---------- */
+    .faq-summary {
+      background: #fcf3e8;
+      border-radius: 2rem;
+      padding: 1.8rem 2rem;
+      margin: 1.8rem 0 1.6rem;
+    }
+
+    .faq-summary h2 {
+      font-size: 1.4rem;
+      font-weight: 550;
+      color: #80471c;
+      margin-bottom: 1.2rem;
+      border-left: 5px solid #d97d2e;
+      padding-left: 0.9rem;
+    }
+
+    .faq-item {
+      margin-bottom: 1rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid #e7d4be;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .faq-q {
+      font-weight: 600;
+      color: #5e3e22;
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .faq-a {
+      font-size: 0.94rem;
+      color: #3f3327;
+      padding-left: 0.5rem;
+    }
+
+    /* ---------- 底部区域 ---------- */
+    .bottom-links {
+      text-align: center;
+      padding: 1.5rem 0.5rem 0.2rem;
+      font-size: 0.95rem;
+      color: #5b432b;
+    }
+
+    .bottom-links a {
+      color: #7a471e;
+      text-decoration: none;
+      font-weight: 520;
+      border-bottom: 1px dotted #b98550;
+      transition: border-bottom 0.15s;
+    }
+
+    .bottom-links a:hover {
+      border-bottom: 2px solid #a15d26;
+      color: #5b3718;
+    }
+
+    .sep-dot {
+      margin: 0 0.8rem;
+      color: #b48b67;
+      opacity: 0.5;
+    }
+
+    .footnote {
+      margin-top: 1.8rem;
+      font-size: 0.85rem;
+      color: #66492e;
+      border-top: 1px solid #dbb994;
+      padding-top: 1.2rem;
+      opacity: 0.85;
+    }
+
+    /* ---------- 响应式 ---------- */
+    @media (max-width: 700px) {
+      body {
+        padding: 1.2rem 0.8rem;
+      }
+
+      .card-soft {
+        padding: 1.8rem 1.2rem;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .grid-2col {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .feat-item {
+        padding: 1.3rem;
+      }
+
+      .faq-summary {
+        padding: 1.4rem 1.2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 1.9rem;
+      }
+
+      .hero .subhead {
+        font-size: 1rem;
+      }
+
+      .bottom-links .sep-dot {
+        display: none;
+      }
+
+      .bottom-links a {
+        display: inline-block;
+        margin: 0.2rem 0.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- hero 区 -->
+  <div class="card-soft hero">
+    <h1>星空体育app</h1>
+    <p class="subhead">一站式体育内容聚合 · 赛事数据 · 社区动态<br>快速识别平台用途：查赛程、看比分、追踪球队资讯</p>
+    <span class="badge">对应用户场景 · 简洁直观</span>
+  </div>
+
+  <!-- 优势区：两列卡片 -->
+  <div class="card-soft" style="padding-top: 1.8rem;">
+    <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.4rem;">
+      <span style="background: #d77d31; width: 6px; height: 28px; border-radius: 10px; display: inline-block;"></span>
+      <h2 style="font-size: 1.5rem; font-weight: 550; color: #653f1b;">为什么选星空体育</h2>
+    </div>
+    <div class="grid-2col">
+      <div class="feat-item">
+        <h3>⚡ 实时数据</h3>
+        <p>覆盖足球、篮球、网球等主流联赛，比分、阵容、统计更新间隔短，减少搜索成本。</p>
+      </div>
+      <div class="feat-item">
+        <h3>📋 赛程日历</h3>
+        <p>按日期或联赛筛选未来比赛，一键加入关注，赛前提醒不遗漏关键对决。</p>
+      </div>
+      <div class="feat-item">
+        <h3>🧩 社区讨论</h3>
+        <p>每场比赛附带讨论区，查看球迷观点、战术分析，也可发布个人见解。</p>
+      </div>
+      <div class="feat-item">
+        <h3>📱 多端适配</h3>
+        <p>移动端与桌面布局统一，无需额外下载，浏览器直接使用核心功能。</p>
+      </div>
+    </div>
+    <!-- 简短说明 -->
+    <p style="margin-top: 0.8rem; font-size: 0.95rem; color: #4f3c28;">
+      <span class="num-highlight">快速识别</span>&nbsp; 从首页导航即可进入赛程、排名、球队档案，无冗余跳转。
+    </p>
+  </div>
+
+  <!-- 说明区：用途与场景 -->
+  <div class="card-soft desc-block">
+    <h2 style="font-size: 1.5rem; font-weight: 550; color: #653f1b; margin-bottom: 0.8rem;">📌 平台说明与典型用法</h2>
+    <p><strong>星空体育app</strong> 定位为体育信息聚合工具，主要帮助用户：<br>
+    · 查询国内外联赛实时比分与赛程<br>
+    · 浏览球队/球员赛季数据与近期状态<br>
+    · 参与每场比赛的实时文字讨论</p>
+    <p>场景举例：周末五大联赛密集进行时，使用 <a href="https://new-starsportsapp.com" class="inline-link">星空体育app</a> 可以同时跟踪多场焦点战，页面分区清晰，无需频繁切换标签页。页面内也集成了简易的球队对比工具，适合赛前快速做功课。</p>
+    <p>如果你经常需要在一处获取比分、排名和新闻摘要，这款工具可以节省跨平台查阅的时间。所有内容均基于公开数据接口，不带倾向性评论。</p>
+  </div>
+
+  <!-- FAQ 摘要 -->
+  <div class="card-soft faq-summary">
+    <h2>❓ 常见疑问 · 简短回答</h2>
+    <div class="faq-item">
+      <div class="faq-q">Q：是否需要注册才能浏览赛程？</div>
+      <div class="faq-a">A：大部分赛程、比分和排名可直接查看；发帖或关注球队需要免费注册账号。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Q：数据更新频率如何？</div>
+      <div class="faq-a">A：实时比赛每 30–60 秒刷新一次，赛后统计 10 分钟内生成。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Q：是否提供桌面小组件或推送？</div>
+      <div class="faq-a">A：目前支持浏览器通知（需用户授权），小组件功能在迭代中。</div>
+    </div>
+  </div>
+
+  <!-- 底部链接区 -->
+  <div class="card-soft bottom-links">
+    <p>直接使用 <a href="https://new-starsportsapp.com">星空体育app</a> 开始探索 · 赛程 / 数据 / 讨论</p>
+    <div style="margin: 0.8rem 0 0.3rem;">
+      <a href="#">关于平台</a>
+      <span class="sep-dot">·</span>
+      <a href="#">使用指南</a>
+      <span class="sep-dot">·</span>
+      <a href="#">数据来源</a>
+      <span class="sep-dot">·</span>
+      <a href="#">隐私说明</a>
+    </div>
+    <div class="footnote">
+      页面仅为用途介绍 · 产品内容以实际版本为准 · 保持理性参考
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
